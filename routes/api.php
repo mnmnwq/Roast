@@ -22,4 +22,8 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     Route::get('/user', function( Request $request ){
         return $request->user();
     });
+
+    Route::get('/cafes', 'API\CafesController@getCafes');  //咖啡店列表
+    Route::post('/cafes', 'API\CafesController@postNewCafe'); //增加一个咖啡店
+    Route::get('/cafes/{id}', 'API\CafesController@getCafe'); //咖啡店详情
 });
